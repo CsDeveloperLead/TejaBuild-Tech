@@ -1,50 +1,56 @@
-import React from 'react';
-import { Bed, Bath, ArrowRight } from 'lucide-react';
+// import { Bed, Bath, ArrowRight } from 'lucide-react';
 
 const KK = () => {
   return (
-    <div className="bg-gray-100 p-8 rounded-lg">
-      <div className="container mx-auto flex flex-col lg:flex-row justify-between items-start">
-        {/* Left Section */}
-        <div className="lg:w-1/2 mb-8 lg:mb-0">
-          <p className="text-orange-500 text-sm font-semibold mb-2">04 | Projects</p>
-          <h2 className="text-3xl font-bold mb-4">Some of our Projects</h2>
-          <p className="text-gray-600">
-            Explore a curated selection of luxury homes and high-end real estate designed to suit your preferences and needs.
-          </p>
+    <div className="mx-2">
+
+
+  {/* Services Section */}
+
+  <div className='w-full flex flex-col md:flex-row md:items-center md:justify-between gap-4 mt-6 md:mb-10 mx-2'>
+    <div className='w-full md:w-1/3 flex flex-col items-center md:items-start gap-3'>
+      <span className='text-sm text-[#f97316] flex items-center font-bold'>04 <span className='px-2 flex items-center'>|</span> Projects</span>
+      <p className='text-2xl md:text-4xl font-bold '>Some of our Projects</p>
+    </div>
+    <div className='w-full md:w-1/3 '>
+      <p className='text-[#292929] text-base text-center md:text-start mb-8 md:mb-0'>Explore a curated selection of luxury homes and high-end real estate designed to suit your preferences and needs</p>
+    </div>
+  </div>
+  <div className='flex w-full flex-col md:flex-row gap-6'>
+    <div className='w-full md:w-1/2  '>
+    <div className='w-full bg-[#c4c4c4] rounded-[30px] h-[500px] md:h-[760px] flex justify-center items-end '>
+    <div className=' bg-[#292929] p-4 md:p-8 rounded-[30px] w-[90%] h-[150px] md:h-[200px] flex flex-col gap-6 mb-4 md:mb-8'>
+      <div className='flex justify-between items-center'>
+        <p className='text-[#ef6d11] font-bold text-xl md:text-4xl'>₹10,800,000</p>
+        <button className='bg-[#ef6d11] rounded-3xl text-white flex justify-center items-center w-[140px] md:w-[180px] py-2 font-semibold'>Book Now</button>
+      </div>
+      <div className=' flex  flex-col md:flex-row items-center  justify-between'>
+        <div className='flex md:flex-col gap-3'>
+          <p className='text-white font-semibold'>Noida sun city</p>
+          <p className='text-gray-400 '>Miami Beach, FL</p>
         </div>
-
-        {/* Right Section */}
-        <div className="lg:w-1/2 w-full">
-          <div className="bg-gray-300 h-64 rounded-lg relative mb-4">
-            {/* Price Tag */}
-            <div className="absolute bottom-4 left-4 right-4 bg-black text-white p-4 rounded-lg">
-              <div className="text-xl font-bold mb-1">₹10,800,000</div>
-              <div className="text-sm text-gray-300 mb-2">Noida Sun City, Miami Beach, FL</div>
-              
-              <div className="flex justify-between text-xs">
-                <span className="flex items-center"><Bed size={16} className="mr-1" /> 6 bedrooms</span>
-                <span className="flex items-center"><Bath size={16} className="mr-1" /> 7 bathrooms</span>
-              </div>
-              <button className="bg-orange-500 text-white px-4 py-2 mt-2 rounded-full text-sm w-full">
-                Book Now
-              </button>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 gap-4">
-            <div className="bg-gray-300 h-32 rounded-lg"></div>
-            <div className="bg-gray-300 h-32 rounded-lg"></div>
-            <div className="bg-gray-300 h-32 rounded-lg"></div>
-            <div className="bg-gray-300 h-32 rounded-lg"></div>
-          </div>
-
-          <button className="mt-6 bg-orange-500 text-white px-6 py-3 rounded-full flex items-center justify-center w-full">
-            Explore More Properties <ArrowRight size={20} className="ml-2" />
-          </button>
-        </div>
+        <div className='text-white font-semibold flex items-end gap-4 '>6 bedrooms <span className='text-xl'> | </span> 7 bathrooms</div>
       </div>
     </div>
+
+    </div>
+    </div>
+    <div className='w-full md:w-1/2 flex flex-col h-[450px] md:h-auto gap-6'>
+    <div className='bg-[#c4c4c4] rounded-[30px] w-full h-1/2 '>
+
+    </div>
+    <div className='flex gap-6 h-1/2'>
+      <div className='bg-[#c4c4c4] rounded-[30px] w-full '></div>
+      <div className='bg-[#c4c4c4] rounded-[30px] w-full '></div>
+    </div>
+    
+    </div>
+  </div>
+  <div className="w-full flex justify-center items-center mt-10">
+    <button className="flex justify-center items-center rounded-[30px] bg-[#ef6d11] w-2/3 md:w-1/5 text-white py-3 font-semibold text-base md:text-xl">Explore More Properties</button>
+  </div>
+</div>
+
   );
 };
 

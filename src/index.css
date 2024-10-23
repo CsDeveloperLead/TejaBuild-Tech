@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* *{
+  border: 1px solid red;;
+} */
+
+@layer utilities {
+  .animate-marquee {
+    animation: marquee 15s linear infinite;
+    display: flex;
+    white-space: nowrap;
+    animation-play-state: running; /* Ensure animation runs by default */
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* On hover, pause the animation */
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+}
+

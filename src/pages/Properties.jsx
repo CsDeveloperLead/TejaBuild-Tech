@@ -3,6 +3,7 @@ import Navbar from '../components/Header';
 import Bestprop from '../components/Bestprop';
 import Footer from '../components/Footer';
 import { ChevronLeft, ChevronRight, Heart, Share } from 'lucide-react';
+import Mostview from '../components/Mostview';
 
 const Properties = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -175,7 +176,7 @@ const Properties = () => {
           ))}
         </div>
       </div>
-
+      <Mostview />
       <Bestprop />
     </div>
   );
