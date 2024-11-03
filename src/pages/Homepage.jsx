@@ -240,11 +240,11 @@ const HomePage = () => {
       </section>
 
       {/* About Section */}
-      <section className="py-16 px-10 bg-white">
+      <section className="py-16 px-2 md:px-10 bg-white">
         <div className="flex flex-col lg:flex-row gap-12">
           <div className="lg:w-1/2 flex gap-4">
-            <div className="w-1/2 h-[400px] bg-gray-300 rounded-2xl"></div>
-            <div className="w-1/2 h-[400px] bg-gray-300 rounded-2xl"></div>
+            <div className="w-1/2 h-[200px] md:h-[400px] bg-gray-300 rounded-2xl"></div>
+            <div className="w-1/2 h-[200px] md:h-[400px] bg-gray-300 rounded-2xl"></div>
           </div>
           <div className="lg:w-1/2">
             <p className="text-orange-500 text-sm font-bold text-center md:text-start uppercase mb-2">02 | About Us</p>
