@@ -7,7 +7,7 @@ const Navbar = () => {
 
   return (
     <header className="bg-white ">
-      <div className="px-2 md:px-10 py-8 flex justify-around md:justify-between items-center ">
+      <div className="px-2 md:px-16 py-8 flex justify-around md:justify-between items-center ">
         <Link to="/">
         <div className="text-2xl font-bold">Teja Builders</div>
         </Link>
