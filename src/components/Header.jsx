@@ -1,5 +1,5 @@
 import  { useState } from 'react';
-import { NavLink } from 'react-router-dom'; 
+import { NavLink , Link } from 'react-router-dom'; 
 import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
@@ -7,7 +7,7 @@ const Navbar = () => {
 
   return (
     <header className="bg-white ">
-      <div className="container mx-auto px-10 py-4 flex justify-between items-center shadow-md">
+      <div className="px-2 md:px-10 py-8 flex justify-around md:justify-between items-center ">
         <div className="text-2xl font-bold">Teja Builders</div>
        
         
@@ -19,14 +19,14 @@ const Navbar = () => {
         </button>
 
         
-        <nav className="hidden md:flex space-x-6">
+        <nav className="hidden md:flex space-x-14">
           <NavLink
             exact="true"
             to="/"
             className={({ isActive }) =>
               isActive
-                ? 'text-orange-500 font-bold'
-                : 'text-gray-700 hover:text-gray-900'
+                ? 'text-orange-500 text-lg font-bold'
+                : 'text-[##292929]  text-lg hover:text-gray-900'
             }
           >
             Home
@@ -35,8 +35,8 @@ const Navbar = () => {
             to="/properties"
             className={({ isActive }) =>
               isActive
-                ? 'text-orange-500 font-bold'
-                : 'text-gray-700 hover:text-gray-900'
+                ? 'text-orange-500 text-lg font-bold'
+                : 'text-gray-700  text-lg hover:text-gray-900'
             }
           >
             Properties
@@ -45,8 +45,8 @@ const Navbar = () => {
             to="/about-us"
             className={({ isActive }) =>
               isActive
-                ? 'text-orange-500 font-bold'
-                : 'text-gray-700 hover:text-gray-900'
+                ? 'text-orange-500 text-lg font-bold'
+                : 'text-gray-700 text-lg hover:text-gray-900'
             }
           >
             About Us
@@ -55,17 +55,18 @@ const Navbar = () => {
             to="/contact-us"
             className={({ isActive }) =>
               isActive
-                ? 'text-orange-500 font-bold'
-                : 'text-gray-700 hover:text-gray-900'
+                ? 'text-orange-500 text-lg font-bold'
+                : 'text-gray-700 text-lg hover:text-gray-900'
             }
           >
-            Contact
+            Contact Us
           </NavLink>
         </nav>
-
+        <Link to={"https://wa.link/0po3q9"} target="_blank" rel="noopener noreferrer">
         <button className="hidden md:block bg-orange-500 text-white px-6 py-2 rounded-full hover:bg-orange-600 transition duration-300">
           Get in Touch
         </button>
+        </Link>
       </div>
 
       
@@ -116,12 +117,14 @@ const Navbar = () => {
           >
             Contact
           </NavLink>
+          <Link to={"https://wa.link/0po3q9" } target="_blank" rel="noopener noreferrer">
           <button
             className="mx-4 mt-2 bg-orange-500 text-white px-6 py-2 rounded-full hover:bg-orange-600 transition duration-300"
             onClick={() => setIsMenuOpen(false)}
           >
             Get in Touch
           </button>
+          </Link>
         </nav>
       )}
     </header>

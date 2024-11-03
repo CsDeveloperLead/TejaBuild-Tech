@@ -1,87 +1,51 @@
-import React, { useState } from "react";
+import React from "react";
 import { MdOutlineBathtub } from "react-icons/md";
-import { FaBed } from "react-icons/fa";
-import { FaLongArrowAltRight } from "react-icons/fa";
+import { FaBed, FaLongArrowAltRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
+
+import build1 from "../assets/1.png";
+import buildbg1 from "../assets/bg1.png";
+import build2 from "../assets/2.png";
+import buildbg2 from "../assets/bg2.png";
 
 // Sample property data
 const properties = [
   {
     id: 1,
-    title: "Luxury Suite",
-    location: "101, A-5 Paschim Vihar, New Delhi",
-    price: "₹2,000,000",
-    rooms: 4,
-    baths: 3,
-    area: "1500 sqft",
-    type: "House",
+    link: "https://wa.link/lfxord",
+    image: build1,
+    bgimg: buildbg1,
+    title: "Logi Industrial Hero Park",
+    location: "Haridwar, Uttarakhand",
+    area: "1500 sq ft",
+    price: "₹600,000",
+    category: "Industrial",
+    rooms: 3, // Added rooms data for demo
+    baths: 2, // Added baths data for demo
   },
   {
     id: 2,
-    title: "Front Villa",
-    location: "231, A-3 Paschim Vihar, New Delhi",
-    price: "₹1,500,000",
-    rooms: 4,
-    baths: 3,
-    area: "1500 sqft",
-    type: "House",
+    link: "https://wa.link/00nqfr",
+    image: build2,
+    bgimg: buildbg2,
+    title: "Indo World Space Phase 1",
+    location: "Ghaziabad, Uttar Pradesh",
+    area: "1500 sq ft",
+    price: "₹600,000",
+    category: "Commercial",
+    rooms: 4, // Added rooms data for demo
+    baths: 3, // Added baths data for demo
   },
 ];
 
 const Mostview = () => {
-  const [selectedType, setSelectedType] = useState("All");
-
-  const filteredProperties =
-    selectedType === "All"
-      ? properties
-      : properties.filter((property) => property.type === selectedType);
-
   return (
     <div className="p-4">
       <h2 className="text-2xl font-bold mb-4">Most Viewed Property</h2>
 
-      {/* Filter buttons */}
-      <div className="mb-4 flex space-x-4">
-        <button
-          className={`px-4 py-2 rounded-full ${selectedType === "All" ? "bg-orange-500 text-white" : "bg-gray-200 text-gray-700"}`}
-          onClick={() => setSelectedType("All")}
-        >
-          All
-        </button>
-        <button
-          className={`px-4 py-2 rounded-full ${selectedType === "House" ? "bg-orange-500 text-white" : "bg-gray-200 text-gray-700"}`}
-          onClick={() => setSelectedType("House")}
-        >
-          House
-        </button>
-        <button
-          className={`px-4 py-2 rounded-full ${selectedType === "Apartment" ? "bg-orange-500 text-white" : "bg-gray-200 text-gray-700"}`}
-          onClick={() => setSelectedType("Apartment")}
-        >
-          Apartment
-        </button>
-        <button
-          className={`px-4 py-2 rounded-full ${selectedType === "Flats" ? "bg-orange-500 text-white" : "bg-gray-200 text-gray-700"}`}
-          onClick={() => setSelectedType("Flats")}
-        >
-          Flats
-        </button>
-        <button
-          className={`px-4 py-2 rounded-full ${selectedType === "Small House" ? "bg-orange-500 text-white" : "bg-gray-200 text-gray-700"}`}
-          onClick={() => setSelectedType("Small House")}
-        >
-          Small House
-        </button>
-        <button
-          className={`px-4 py-2 rounded-full ${selectedType === "Mansion" ? "bg-orange-500 text-white" : "bg-gray-200 text-gray-700"}`}
-          onClick={() => setSelectedType("Mansion")}
-        >
-          Mansion
-        </button>
-      </div>
-
       {/* Property Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {filteredProperties.map((property) => (
+        {properties.map((property) => (
           <PropertyCard key={property.id} property={property} />
         ))}
       </div>
@@ -90,18 +54,17 @@ const Mostview = () => {
 };
 
 const PropertyCard = ({ property }) => {
-  const { title, location, price, rooms, baths, area } = property;
-
-  const cardStyle = {
-    background: "linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.8))",
-  };
+  const { title, location, price, rooms,link, baths, area, bgimg } = property;
 
   return (
-    <div className="relative h-80 p-8 rounded-lg shadow-lg overflow-hidden flex flex-col justify-end">
+    <div
+      className={`relative h-80 rounded-lg shadow-lg overflow-hidden flex flex-col  justify-end bg-cover bg-center`}
+      style={{ backgroundImage: `url('${bgimg}')`, backgroundPosition: "center" , backgroundSize: "cover"}}
+    >
       {/* Gradient overlay */}
-      <div className="absolute inset-0 z-10" style={cardStyle}></div>
+      <div className="absolute inset-0 bg-black  opacity-40"></div>
 
-      <div className="relative z-20 flex flex-col justify-end h-full">
+      <div className="relative z-20 flex flex-col justify-end h-full bg-opacity-90 p-8 backdrop-blur-sm">
         {/* Property Title and Location */}
         <div className="text-white mb-4">
           <h3 className="text-lg font-semibold">{title}</h3>
@@ -110,23 +73,27 @@ const PropertyCard = ({ property }) => {
 
         {/* Property Details */}
         <div className="flex justify-between items-center mt-4 text-white">
-          <div className="flex space-x-2">
-            <span><FaBed />{rooms} </span>
-            <span><MdOutlineBathtub />{baths} </span>
+          {/* <div className="flex space-x-2">
+            <span>
+              <FaBed />
+              {rooms ? rooms : 0} 
+            </span>
+            <span>
+              <MdOutlineBathtub />
+              {baths ? baths : 0} 
+            </span>
             <span>{area}</span>
-          </div>
+          </div> */}
 
-          {/* View More Button */}
-          <button
-            className="bg-orange-500 text-white px-4 py-3 rounded-full flex items-center"
-            style={{ backgroundColor: "#ff5722" }}
-          >
-            View More <span className="ml-2"><FaLongArrowAltRight /></span>
-          </button>
+          <Link to={link} target='_blank' >
+              <button className="bg-orange-500 text-white px-4 py-2 rounded-full text-sm hover:bg-orange-600 transition duration-300">
+                Get A Quote
+              </button>
+              </Link>
         </div>
 
         {/* Property Price */}
-        <p className="text-white mt-2 font-semibold">{price}</p>
+        {/* <p className="text-white mt-2 font-semibold">{price}</p> */}
       </div>
     </div>
   );

@@ -1,54 +1,133 @@
-import React from 'react';
-import { Facebook, Twitter, Instagram, MapPin, Mail, Phone } from 'lucide-react';
+// import React from "react";
+import {
+  Facebook,
+  Twitter,
+  Instagram,
+  MapPin,
+  Mail,
+  Phone,
+} from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-orange-500 text-white py-10 px-4 md:px-10">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div>
-          <h2 className="text-2xl font-bold mb-4">Teja Builders</h2>
-          <p className="text-sm mb-4">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt.
+    <footer className="bg-orange-500 flex flex-col text-white py-10 px-4 md:px-10">
+      <div className="flex flex-col md:flex-row gap-20 mt-10">
+        <div className="w-full md:w-1/4 ">
+          <h2 className="text-3xl font-bold mb-4 text-center md:text-start">Teja BuildTech</h2>
+          <p className="text-sm mb-4 text-center md:text-start">
+            Teja Buildtech saved us time and unlocked valuable insights for our
+            industrial property development, making the process
+            efficient and seamless.
           </p>
-          <div className="flex space-x-4">
-            <a href="#" className="text-white hover:text-gray-200"><Facebook size={20} /></a>
-            <a href="#" className="text-white hover:text-gray-200"><Twitter size={20} /></a>
-            <a href="#" className="text-white hover:text-gray-200"><Instagram size={20} /></a>
+          <div className="flex space-x-4 justify-center md:justify-start">
+            <a href="#" className="text-white hover:text-gray-200">
+              <Facebook size={20} />
+            </a>
+            <a href="#" className="text-white hover:text-gray-200">
+              <Twitter size={20} />
+            </a>
+            <a href="#" className="text-white hover:text-gray-200">
+              <Instagram size={20} />
+            </a>
           </div>
         </div>
+        <div className="w-full md:w-2/3 flex flex-col justify-center">
+          <div className="w-full px-2 md:px-10 flex justify-between">
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+              <ul className="space-y-2">
+                <li>
+                  <a href="/" className="hover:underline">
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <a href="/about-us" className="hover:underline">
+                    About Us
+                  </a>
+                </li>
+                <li>
+                  <Link to="/about-us#leader" className="hover:underline">
+                    Our Team Work
+                  </Link>
+                </li>
+                <li>
+                  <a href="/properties" className="hover:underline">
+                    Services
+                  </a>
+                </li>
+                {/* <li>
+                  <a href="/properties" className="hover:underline">
+                    Work Gallery
+                  </a>
+                </li> */}
+              </ul>
+            </div>
 
-        <div>
-          <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-          <ul className="space-y-2">
-            <li><a href="#" className="hover:underline">Home</a></li>
-            <li><a href="#" className="hover:underline">About Us</a></li>
-            <li><a href="#" className="hover:underline">Our Team Work</a></li>
-            <li><a href="#" className="hover:underline">Services</a></li>
-            <li><a href="#" className="hover:underline">Work Gallery</a></li>
-          </ul>
-        </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Site Links</h3>
+              <ul className="space-y-2">
+                <li>
+                  <a href="#" className="hover:underline">
+                    Privacy Policy
+                  </a>
+                </li>
+                {/* <li>
+                  <a href="#" className="hover:underline">
+                    Disclaimer
+                  </a>
+                </li> */}
+                <li>
+                  <a href="#" className="hover:underline">
+                    Terms & Condition
+                  </a>
+                </li>
+                {/* <li>
+                  <a href="#" className="hover:underline">
+                    Cookies Used
+                  </a>
+                </li> */}
+              </ul>
+            </div>
 
-        <div>
-          <h3 className="text-lg font-semibold mb-4">Site Links</h3>
-          <ul className="space-y-2">
-            <li><a href="#" className="hover:underline">Privacy Policy</a></li>
-            <li><a href="#" className="hover:underline">Disclaimer</a></li>
-            <li><a href="#" className="hover:underline">Terms & Condition</a></li>
-            <li><a href="#" className="hover:underline">Cookies Used</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 className="text-lg font-semibold mb-4">Stay Tuned With Us</h3>
-          <ul className="space-y-2">
-            <li className="flex items-center"><MapPin size={16} className="mr-2" /> Location info</li>
-            <li className="flex items-center"><Mail size={16} className="mr-2" /> Hello@Email.com</li>
-            <li className="flex items-center"><Phone size={16} className="mr-2" /> (+62) 123 456 789</li>
-          </ul>
+            <div className="hidden md:block">
+              <h3 className="text-lg font-semibold mb-4">Stay Tuned With Us</h3>
+              <ul className="space-y-2">
+                <li className="flex items-center">
+                  <MapPin size={16} className="mr-2" /> D39 Teja Tower RDC Rajnagar Ghaziabad
+                </li>
+                <li className="flex items-center">
+                  <Mail size={16} className="mr-2" /> tejabuildtech.marketing@gmail.com
+                </li>
+                <li className="flex items-center">
+                  <Phone size={16} className="mr-2" /> (+91) 6397538734
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="md:hidden mt-10 px-2">
+              <h3 className="text-lg font-semibold mb-4">Stay Tuned With Us</h3>
+              <ul className="space-y-2">
+                <li className="flex items-center">
+                  <MapPin size={16} className="mr-2" /> D39 Teja Tower RDC Rajnagar Ghaziabad
+                </li>
+                <li className="flex items-center">
+                  <Mail size={16} className="mr-2" /> tejabuildtech.marketing@gmail.com
+                </li>
+                <li className="flex items-center">
+                  <Phone size={16} className="mr-2" /> (+91) 6397538734
+                </li>
+              </ul>
+            </div>
         </div>
       </div>
-      <div className="mt-8 text-center text-sm">
-        <p>ALLRIGHT RESERVED - Campaigning Source </p>
+      <div className="mt-12 text-center text-sm">
+        <p>
+          {" "}
+          ©️2024 Teja BiuldTech, made with 💖 by Campaigning Source, all rights
+          reserved
+        </p>
       </div>
     </footer>
   );
