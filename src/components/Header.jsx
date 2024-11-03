@@ -8,14 +8,15 @@ const Navbar = () => {
   return (
     <header className="bg-white ">
       <div className="px-2 md:px-10 py-8 flex justify-around md:justify-between items-center ">
+        <Link to="/">
         <div className="text-2xl font-bold">Teja Builders</div>
-       
+        </Link>
         
         <button
           className="md:hidden"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
-          {isMenuOpen ? <X size={24} /> : <Menu size={50} />}
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
         
@@ -62,8 +63,8 @@ const Navbar = () => {
             Contact Us
           </NavLink>
         </nav>
-        <Link to={"https://wa.link/0po3q9"} target="_blank" rel="noopener noreferrer">
-        <button className="hidden md:block bg-orange-500 text-white px-6 py-2 rounded-full hover:bg-orange-600 transition duration-300">
+        <Link to={"https://wa.link/0po3q9"} target="_blank" rel="noopener noreferrer" className='hidden md:block'>
+        <button className=" bg-orange-500 text-white px-6 py-2 rounded-full hover:bg-orange-600 transition duration-300">
           Get in Touch
         </button>
         </Link>
