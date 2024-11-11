@@ -34,11 +34,11 @@ const KK = () => {
             <div className="bg-[#292929] p-4 md:p-8 rounded-[30px] w-[90%] h-[150px] md:h-[200px] flex flex-col gap-6 mb-4 md:mb-8">
               <div className="flex justify-between items-center">
                 <p className="text-[#ef6d11] font-bold text-xl md:text-4xl">
-                  ₹10,XXX,XXX
+                  ₹22,500 per sq yard
                 </p>
                 <Link to={"https://wa.link/mhemmw"} target="_blank">
                   <button className="bg-[#ef6d11] rounded-3xl text-white flex justify-center items-center w-[140px] md:w-[180px] py-2 font-semibold">
-                    Book Now
+                    Get a Deal
                   </button>
                 </Link>
               </div>

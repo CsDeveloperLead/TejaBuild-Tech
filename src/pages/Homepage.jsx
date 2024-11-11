@@ -29,6 +29,9 @@ import prop2 from "../assets/p2.png";
 import prop3 from "../assets/p3.png";
 import prop4 from "../assets/p4.png";
 
+import img11 from "../assets/deepak.jpg";
+import img12 from "../assets/rahul.jpg";
+
 const HomePage = () => {
   // const [hovered, setHovered] = useState(false);
 
@@ -256,8 +259,20 @@ const HomePage = () => {
       <section className="py-16 px-2 md:px-10 bg-white">
         <div className="flex flex-col lg:flex-row gap-12">
           <div className="lg:w-1/2 flex gap-4">
-            <div className="w-1/2 h-[200px] md:h-[400px] bg-gray-300 rounded-2xl"></div>
-            <div className="w-1/2 h-[200px] md:h-[400px] bg-gray-300 rounded-2xl"></div>
+            <div className="w-1/2 h-[200px] md:h-[400px] bg-gray-300 rounded-2xl">
+              <img
+                src={img11}
+                alt="Deepak"
+                className="w-full h-full object-cover rounded-2xl"
+              />
+            </div>
+            <div className="w-1/2 h-[200px] md:h-[400px] bg-gray-300 rounded-2xl">
+              <img
+                src={img12}
+                alt="Rahul"
+                className="w-full h-full object-cover rounded-2xl"
+              />
+            </div>
           </div>
           <div className="lg:w-1/2">
             <p className="text-orange-500 text-sm font-bold text-center md:text-start uppercase mb-2">

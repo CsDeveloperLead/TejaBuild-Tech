@@ -178,8 +178,8 @@ const Main = () => {
       <h2 className="text-center text-sm text-gray-600 mb-2">ALL OF THEM</h2>
       <h2 className="text-center text-4xl font-bold mb-12">Our Main Leaders</h2>
       <div className="grid md:grid-cols-2 gap-8 mb-16 mx-4 md:mx-20">
-        <LeaderCard name="Rahul Yadav" post="Founder and CEO" image={img11} />
-        <LeaderCard name="Deepak Yadav" post="Founder and CEO" image={img12} />
+        <LeaderCard name="Rahul Yadav" post="Founder and CEO" image={img12} />
+        <LeaderCard name="Deepak Yadav" post="Founder and CEO" image={img11} />
       </div>
       <OurVision />
       <OurMission />
