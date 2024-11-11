@@ -101,7 +101,7 @@ const Footer = () => {
                   <Mail size={16} className="mr-2" /> tejabuildtech.marketing@gmail.com
                 </li>
                 <li className="flex items-center">
-                  <Phone size={16} className="mr-2" /> (+91) 6397538734
+                  <Phone size={16} className="mr-2" /> +91 9654987004
                 </li>
               </ul>
             </div>
@@ -116,7 +116,7 @@ const Footer = () => {
                   <Mail size={16} className="mr-2" /> tejabuildtech.marketing@gmail.com
                 </li>
                 <li className="flex items-center">
-                  <Phone size={16} className="mr-2" /> (+91) 6397538734
+                  <Phone size={16} className="mr-2" /> +91 9654987004
                 </li>
               </ul>
             </div>
@@ -125,7 +125,7 @@ const Footer = () => {
       <div className="mt-12 text-center text-sm">
         <p>
           {" "}
-          ©️2024 Teja BiuldTech, made with 💖 by Campaigning Source, all rights
+          ©️2024 Teja BuildTech, made with 💖 by Campaigning Source, all rights
           reserved
         </p>
       </div>

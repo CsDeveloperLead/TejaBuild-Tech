@@ -21,7 +21,7 @@ import build6 from "../assets/6.png";
 import build7 from "../assets/7.png";
 import build8 from "../assets/8.png";
 import build9 from "../assets/9.png";
-import build10 from "../assets/10.png";
+// import build10 from "../assets/10.png";
 import build11 from "../assets/11.png";
 
 import prop1 from "../assets/p1.png";
@@ -31,6 +31,7 @@ import prop4 from "../assets/p4.png";
 
 import img11 from "../assets/deepak.jpg";
 import img12 from "../assets/rahul.jpg";
+import house from "../assets/house1.png";
 
 const HomePage = () => {
   // const [hovered, setHovered] = useState(false);
@@ -41,9 +42,9 @@ const HomePage = () => {
       link: "https://wa.link/lfxord",
       image: build1,
       title: "Logi Industrial Hero Park",
-      location: "Haridwar, Uttarakhand",
+      location: "Ghaziabad, Uttar Pradesh",
       area: "1500 sq ft",
-      price: "₹600,000",
+      price: "₹22,500 per sq yard",
     },
     {
       id: 2,
@@ -52,7 +53,7 @@ const HomePage = () => {
       title: "Indo World Space Phase 1",
       location: "Ghaziabad, Uttar Pradesh",
       area: "1500 sq ft",
-      price: "₹600,000",
+      price: "₹22,500 per sq yard",
     },
     {
       id: 3,
@@ -61,7 +62,7 @@ const HomePage = () => {
       title: "Indo World Space Phase 2",
       location: "Ghaziabad, Uttar Pradesh",
       area: "2500 sq ft",
-      price: "₹1,200,000",
+      price: "₹22,500 per sq yard",
     },
     {
       id: 4,
@@ -70,7 +71,7 @@ const HomePage = () => {
       title: "Capital Logistic",
       location: "Ghaziabad, Uttar Pradesh",
       area: "2500 sq ft",
-      price: "₹1,500,000",
+       price: "₹22,500 per sq yard",
     },
     {
       id: 5,
@@ -79,7 +80,7 @@ const HomePage = () => {
       title: "Fellcon Infratech",
       location: "Ghaziabad, Uttar Pradesh",
       area: "2500 sq ft",
-      price: "₹1,500,000",
+       price: "₹22,500 per sq yard",
     },
     {
       id: 6,
@@ -88,7 +89,7 @@ const HomePage = () => {
       title: "Sai Industrial Park Phase 1",
       location: "Ghaziabad, Uttar Pradesh",
       area: "2500 sq ft",
-      price: "₹1,500,000",
+       price: "₹22,500 per sq yard",
     },
     {
       id: 7,
@@ -97,7 +98,7 @@ const HomePage = () => {
       title: "Sai Industrial Park Phase 2",
       location: "Ghaziabad, Uttar Pradesh",
       area: "2500 sq ft",
-      price: "₹1,500,000",
+       price: "₹22,500 per sq yard",
     },
     {
       id: 8,
@@ -106,7 +107,7 @@ const HomePage = () => {
       title: "Mangalam Hero Park",
       location: "Haridwar, Uttarakhand",
       area: "2500 sq ft",
-      price: "₹1,500,000",
+      price: "₹15,000 per sq meter",
     },
     {
       id: 9,
@@ -115,17 +116,17 @@ const HomePage = () => {
       title: "Sunrise Enclave",
       location: "Ghaziabad, Uttar Pradesh",
       area: "2500 sq ft",
-      price: "₹1,500,000",
+      price: "₹38,000 per sq yard",
     },
-    {
-      id: 10,
-      link: "https://wa.link/x9f8kc",
-      image: build10,
-      title: "OPUS Industrial Park",
-      location: "Ghaziabad, Uttar Pradesh",
-      area: "2500 sq ft",
-      price: "₹1,500,000",
-    },
+    // {
+    //   id: 10,
+    //   link: "https://wa.link/x9f8kc",
+    //   image: build10,
+    //   title: "OPUS Industrial Park",
+    //   location: "Ghaziabad, Uttar Pradesh",
+    //   area: "2500 sq ft",
+    //   price: "₹1,500,000",
+    // },
     {
       id: 11,
       link: "https://wa.link/uesj24",
@@ -133,7 +134,7 @@ const HomePage = () => {
       title: "MG Industrial Park",
       location: "Ghaziabad, Uttar Pradesh",
       area: "2500 sq ft",
-      price: "₹1,500,000",
+      price: "₹15,500 per sq yard",
     },
     // Add more property objects here as needed
   ];
@@ -200,7 +201,8 @@ const HomePage = () => {
 
   return (
     <div className="font-sans text-gray-800 max-w-7.5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <section className="text-center  py-8 sm:py-14 px-4 sm:px-6 lg:px-8 rounded-2xl my-6 max-sm:mt-0">
+      <section className="text-center  py-8 sm:py-14 px-4 sm:px-6 lg:px-8 rounded-2xl my-6 max-sm:mt-0 flex flex-col md:flex-row">
+        <div className="w-full md:w-1/2">
         <h1 className="text-2xl text-center md:text-left  sm:text-5xl lg:text-6xl font-bold mb-6 ">
           Find Your Dream Property<br></br> with Teja BuildTech
         </h1>
@@ -235,7 +237,14 @@ const HomePage = () => {
             <TiTickOutline className="text-green-500 mr-2" /> Premium Product
           </div>
         </div>
+        </div>
+        <div className="w-full md:w-1/2">
+          <img src={house} alt="" className="w-full h-full md:h-[550px]"/>
+        </div>
+       
       </section>
+
+      {/* Stats Section */}
       <div className="px-10">
         <div className=" rounded-3xl">
           <div className="py-1.5 bg-gradient-to-r from-[#D9D9D9E8] to-[#EF6D11] rounded-3xl"></div>
@@ -351,7 +360,7 @@ const HomePage = () => {
                     <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"></path>
                   </svg>
                 </button> */}
-                      <div className="font-bold text-base">{property.area}</div>
+                      <div className="font-bold text-sm">{property.price}</div>
                     </div>
                     <Link to={property.link} target="_blank">
                       <button className="bg-orange-500 text-white px-4 py-2 rounded-full text-sm hover:bg-orange-600 transition duration-300">

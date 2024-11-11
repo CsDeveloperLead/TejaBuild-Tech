@@ -3,7 +3,7 @@ import { Calendar, Trophy } from "lucide-react";
 import { Link } from "react-router-dom";
 import  {useRef, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-
+import about1 from "../assets/about1.png";
 const AboutUs = () => {
 
   const leadersRef = useRef(null);
@@ -22,7 +22,7 @@ const AboutUs = () => {
           {/* Left: Images */}
           <div className="w-full md:w-[45%] mt-10 md:mt-0">
             <div className="w-full">
-              <span className="relative">
+              {/* <span className="relative">
                 <img
                   src="https://placehold.co/350x450"
                   alt="placeholder"
@@ -47,6 +47,9 @@ const AboutUs = () => {
                   <h1 className="font-bold text-xl md:text-2xl">120+</h1>
                   <p className="text-[12px]">Happy Clients</p>
                 </div>
+              </span> */}
+              <span className="h-[400px]">
+                <img src={about1} alt="" className="w-[400px] h-[400px]"/>
               </span>
             </div>
           </div>

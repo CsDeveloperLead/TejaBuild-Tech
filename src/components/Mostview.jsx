@@ -16,7 +16,7 @@ const properties = [
     image: build1,
     bgimg: buildbg1,
     title: "Logi Industrial Hero Park",
-    location: "Haridwar, Uttarakhand",
+    location: "Ghaziabad, Uttar Pradesh",
     area: "1500 sq ft",
     price: "₹600,000",
     category: "Industrial",
