@@ -201,7 +201,7 @@ const HomePage = () => {
 
   return (
     <div className="font-sans text-gray-800 max-w-7.5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <section className="text-center  py-8 sm:py-14 px-4 sm:px-6 lg:px-8 rounded-2xl my-6 max-sm:mt-0 flex flex-col md:flex-row">
+      <section className="text-center  py-8 sm:py-14 px-4 sm:px-6 lg:px-8 rounded-2xl my-6 max-sm:mt-0 flex flex-col md:flex-row md:relative">
         <div className="w-full md:w-1/2">
         <h1 className="text-2xl text-center md:text-left  sm:text-5xl lg:text-6xl font-bold mb-6 ">
           Find Your Dream Property<br></br> with Teja BuildTech
@@ -238,7 +238,7 @@ const HomePage = () => {
           </div>
         </div>
         </div>
-        <div className="w-full md:w-1/2">
+        <div className="w-full md:w-1/2 md:absolute md:-top-8 md:right-10">
           <img src={house} alt="" className="w-full h-full md:h-[550px]"/>
         </div>
        
@@ -360,7 +360,7 @@ const HomePage = () => {
                     <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"></path>
                   </svg>
                 </button> */}
-                      <div className="font-bold text-sm">{property.price}</div>
+                      <div className="font-bold text-sm w-[140px]">{property.price}</div>
                     </div>
                     <Link to={property.link} target="_blank">
                       <button className="bg-orange-500 text-white px-4 py-2 rounded-full text-sm hover:bg-orange-600 transition duration-300">

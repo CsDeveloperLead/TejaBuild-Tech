@@ -1,11 +1,10 @@
 import Main from "../components/Main";
 import { Calendar, Trophy } from "lucide-react";
 import { Link } from "react-router-dom";
-import  {useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import about1 from "../assets/about1.png";
+import about1 from "../assets/about4.png";
 const AboutUs = () => {
-
   const leadersRef = useRef(null);
   const location = useLocation();
 
@@ -20,38 +19,8 @@ const AboutUs = () => {
         {/* About Section */}
         <div className="flex flex-col lg:flex-row justify-between items-center mb-20">
           {/* Left: Images */}
-          <div className="w-full md:w-[45%] mt-10 md:mt-0">
-            <div className="w-full">
-              {/* <span className="relative">
-                <img
-                  src="https://placehold.co/350x450"
-                  alt="placeholder"
-                  className="rounded-3xl hidden md:block"
-                />
-                <img
-                  src="https://placehold.co/250x350"
-                  alt="placeholder"
-                  className="rounded-3xl md:hidden"
-                />
-                <img
-                  src="https://placehold.co/350x450"
-                  alt="placeholder"
-                  className="rounded-3xl absolute top-1/4 left-1/4 hidden md:block"
-                />
-                <img
-                  src="https://placehold.co/250x350"
-                  alt="placeholder"
-                  className="rounded-3xl absolute top-1/4 left-1/4 md:hidden"
-                />
-                <div className="bg-[#ef6d11] py-2 md:py-3 rounded-xl text-white flex flex-col px-4 md:px-8 justify-center items-center absolute left-10 md:left-20 -bottom-8">
-                  <h1 className="font-bold text-xl md:text-2xl">120+</h1>
-                  <p className="text-[12px]">Happy Clients</p>
-                </div>
-              </span> */}
-              <span className="h-[400px]">
-                <img src={about1} alt="" className="w-[400px] h-[400px]"/>
-              </span>
-            </div>
+          <div className="w-full md:w-[45%] mt-10 md:mt-0 rounded-[50px] overflow-hidden">
+            <img src={about1} alt="" className="w-full h-full object-cover rounded-[50px] " />
           </div>
 
           {/* Right: Text Section */}
@@ -78,9 +47,9 @@ const AboutUs = () => {
               </li>
             </ul>
             <Link to={"/contact-us"}>
-            <button className="mt-8 bg-orange-500 text-white px-8 py-3 rounded-full font-bold hover:bg-orange-600 transition duration-300">
-              Contact Us
-            </button>
+              <button className="mt-8 bg-orange-500 text-white px-8 py-3 rounded-full font-bold hover:bg-orange-600 transition duration-300">
+                Contact Us
+              </button>
             </Link>
           </div>
         </div>
@@ -105,10 +74,9 @@ const AboutUs = () => {
           ))}
         </div>
       </div>
-       <div id="leader" ref={leadersRef}>
-       <Main />
-       </div>
-      
+      <div id="leader" ref={leadersRef}>
+        <Main />
+      </div>
     </div>
   );
 };

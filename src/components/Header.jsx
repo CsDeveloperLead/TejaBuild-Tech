@@ -1,6 +1,7 @@
 import  { useState } from 'react';
 import { NavLink , Link } from 'react-router-dom'; 
 import { Menu, X } from 'lucide-react';
+import logo from '../assets/logo.png';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,7 +10,11 @@ const Navbar = () => {
     <header className="bg-white ">
       <div className="px-2 md:px-16 py-8 flex justify-around md:justify-between items-center ">
         <Link to="/">
-        <div className="text-2xl font-bold">Teja Builders</div>
+        <div className='flex items-center gap-4'>
+        {/* <img src={logo} alt="" className='w-14 h-14'/> */}
+        <span className="font-bold text-2xl drop-shadow-sm">Teja BuildTech</span>
+        </div>
+       
         </Link>
         
         <button
