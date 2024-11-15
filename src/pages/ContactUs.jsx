@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { MapPin, Phone, Mail } from "lucide-react";
 import emailjs from "emailjs-com";
 
@@ -103,7 +103,7 @@ const ContactInfo = () => {
         Keep Connected & Lets Get In Touch With Our Team
       </h2>
       <p className="text-gray-600 mb-8">
-      To build a legacy of durable, adaptable industrial spaces that stand the test of time.
+      To build a legacy of durable, adaptable industrial spaces that stand the test of time.
       </p>
       <div className="space-y-4">
         <div className="flex items-center">
