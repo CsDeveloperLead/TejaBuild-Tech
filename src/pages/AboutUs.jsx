@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { useRef, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import about1 from "../assets/about4.png";
+import { RollingNumber } from "../utils/RollingNumber";
+
 const AboutUs = () => {
   const leadersRef = useRef(null);
   const location = useLocation();
@@ -67,7 +69,7 @@ const AboutUs = () => {
               className="text-center mb-8 lg:mb-0 flex flex-col gap-2 items-center"
             >
               <div className="text-2xl md:text-4xl font-bold text-orange-500">
-                {stat.number}
+                <RollingNumber targetNumber={parseInt(stat.number,10)} duration={1000} stepTime={50} />
               </div>
               <div className="text-gray-600 font-bold mt-2">{stat.label}</div>
             </div>

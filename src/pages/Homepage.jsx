@@ -32,6 +32,38 @@ import prop4 from "../assets/p4.png";
 import img11 from "../assets/deepak.jpg";
 import img12 from "../assets/rahul.jpg";
 import house from "../assets/house1.png";
+import { useEffect, useState } from "react";
+import { RollingNumber } from "../utils/RollingNumber";
+
+function ScrollProgressBar() {
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY; // How much is scrolled
+      const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight; // Total scrollable area
+      const progress = (scrollTop / windowHeight) * 100; // Scroll progress percentage
+      setScrollProgress(progress);
+    };
+
+    // Add scroll event listener
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup event listener on unmount
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <div className="px-10 sticky top-0 z-50 bg-white">
+      <div className="w-full h-4 rounded-3xl bg-[#D9D9D9E8] overflow-hidden">
+        <div
+          className="h-full bg-gradient-to-r from-[#EF6D11] to-[#FF8C42] rounded-3xl"
+          style={{ width: `${scrollProgress}%` }}
+        ></div>
+      </div>
+    </div>
+  );
+}
 
 const HomePage = () => {
   // const [hovered, setHovered] = useState(false);
@@ -71,7 +103,7 @@ const HomePage = () => {
       title: "Capital Logistic",
       location: "Ghaziabad, Uttar Pradesh",
       area: "2500 sq ft",
-       price: "₹22,500 per sq yard",
+      price: "₹22,500 per sq yard",
     },
     {
       id: 5,
@@ -80,7 +112,7 @@ const HomePage = () => {
       title: "Fellcon Infratech",
       location: "Ghaziabad, Uttar Pradesh",
       area: "2500 sq ft",
-       price: "₹22,500 per sq yard",
+      price: "₹22,500 per sq yard",
     },
     {
       id: 6,
@@ -89,7 +121,7 @@ const HomePage = () => {
       title: "Sai Industrial Park Phase 1",
       location: "Ghaziabad, Uttar Pradesh",
       area: "2500 sq ft",
-       price: "₹22,500 per sq yard",
+      price: "₹22,500 per sq yard",
     },
     {
       id: 7,
@@ -98,7 +130,7 @@ const HomePage = () => {
       title: "Sai Industrial Park Phase 2",
       location: "Ghaziabad, Uttar Pradesh",
       area: "2500 sq ft",
-       price: "₹22,500 per sq yard",
+      price: "₹22,500 per sq yard",
     },
     {
       id: 8,
@@ -203,58 +235,54 @@ const HomePage = () => {
     <div className="font-sans text-gray-800 max-w-7.5xl mx-auto px-4 sm:px-6 lg:px-8">
       <section className="text-center  py-8 sm:py-14 px-4 sm:px-6 lg:px-8 rounded-2xl my-6 max-sm:mt-0 flex flex-col md:flex-row md:relative">
         <div className="w-full md:w-1/2">
-        <h1 className="text-2xl text-center md:text-left  sm:text-5xl lg:text-6xl font-bold mb-6 ">
-          Find Your Dream Property<br></br> with Teja BuildTech
-        </h1>
-        <p className="text-lg sm:text-xl text-gray-600 mb-8 max-w-3xl  text-center md:text-left">
-          Explore an exclusive selection of prime real estate tailored to match
-          your lifestyle and preferences. Whether you&apos;re seeking a family
-          home, a luxurious apartment, or a smart investment in terms of
-          Residential plots or Specially designed Industrial plots.
-        </p>
-        <div className="flex flex-col sm:flex-row justify-left gap-4 mb-8">
-          <Link to={"/properties"}>
-            <button className="bg-orange-500  text-white py-3 px-8 rounded-full text-lg hover:bg-orange-600 transition duration-300">
-              Explore Properties
-            </button>
-          </Link>
-          <Link
-            to={"https://wa.link/0po3q9"}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <button className="bg-white text-gray-800 py-3 px-8 rounded-full text-lg border-2 border-gray-800 hover:bg-gray-100 transition duration-300">
-              Get In Touch
-            </button>
-          </Link>
-        </div>
+          <h1 className="text-2xl text-center md:text-left  sm:text-5xl lg:text-6xl font-bold mb-6 ">
+            Find Your Dream Property<br></br> with Teja BuildTech
+          </h1>
+          <p className="text-lg sm:text-xl text-gray-600 mb-8 max-w-3xl  text-center md:text-left">
+            Explore an exclusive selection of prime real estate tailored to match
+            your lifestyle and preferences. Whether you&apos;re seeking a family
+            home, a luxurious apartment, or a smart investment in terms of
+            Residential plots or Specially designed Industrial plots.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-left gap-4 mb-8">
+            <Link to={"/properties"}>
+              <button className="bg-orange-500  text-white py-3 px-8 rounded-full text-lg hover:bg-orange-600 transition duration-300">
+                Explore Properties
+              </button>
+            </Link>
+            <Link
+              to={"https://wa.link/0po3q9"}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className="bg-white text-gray-800 py-3 px-8 rounded-full text-lg border-2 border-gray-800 hover:bg-gray-100 transition duration-300">
+                Get In Touch
+              </button>
+            </Link>
+          </div>
 
-        <div className="flex flex-col sm:flex-row justify-left gap-6 mt-8">
-          <div className="flex items-center text-lg">
-            <TiTickOutline className="text-green-500 mr-2" /> Professional Team
+          <div className="flex flex-col sm:flex-row justify-left gap-6 mt-8">
+            <div className="flex items-center text-lg">
+              <TiTickOutline className="text-green-500 mr-2" /> Professional Team
+            </div>
+            <div className="flex items-center text-lg">
+              <TiTickOutline className="text-green-500 mr-2" /> Premium Product
+            </div>
           </div>
-          <div className="flex items-center text-lg">
-            <TiTickOutline className="text-green-500 mr-2" /> Premium Product
-          </div>
-        </div>
         </div>
         <div className="w-full md:w-1/2 md:absolute md:-top-8 md:right-10">
-          <img src={house} alt="" className="w-full h-full md:h-[550px]"/>
+          <img src={house} alt="" className="w-full h-full md:h-[550px]" />
         </div>
-       
+
       </section>
 
       {/* Stats Section */}
-      <div className="px-10">
-        <div className=" rounded-3xl">
-          <div className="py-1.5 bg-gradient-to-r from-[#D9D9D9E8] to-[#EF6D11] rounded-3xl"></div>
-        </div>
-      </div>
+      <ScrollProgressBar />
 
       <section className="flex flex-col md:flex-row justify-around py-8 bg-white mx-4 sm:mx-0">
         {["122K+", "280+", "120+"].map((number, index) => (
           <div key={index} className="flex gap-4 items-center mb-8 md:mb-0">
-            <h2 className="text-5xl font-bold">{number}</h2>
+            <h2 className="text-5xl font-bold"><RollingNumber targetNumber={parseInt(number,10)} duration={1000} stepTime={50} /></h2>
             <p className="text-gray-600 mt-2 text-base text-center max-w-[180px]">
               {index === 0 && "People Believe In Our Service"}
               {index === 1 && "Property And House Ready For Occupancy"}
