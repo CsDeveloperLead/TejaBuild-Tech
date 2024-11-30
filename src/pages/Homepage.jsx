@@ -32,7 +32,7 @@ import prop4 from "../assets/p4.png";
 import img11 from "../assets/deepak.jpg";
 import img12 from "../assets/rahul.jpg";
 import house from "../assets/house1.png";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { RollingNumber } from "../utils/RollingNumber";
 
 function ScrollProgressBar() {
@@ -65,8 +65,36 @@ function ScrollProgressBar() {
   );
 }
 
+function UpwardsCarousel({ items }) {
+  const [index, setIndex] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % items.length)
+    }, 3000);
+
+    return () => clearInterval(interval);
+
+  }, [items.length])
+
+  return (
+    <div className="relative w-full h-10 sm:h-16 overflow-hidden xl:h-20">
+      <div className="flex flex-col transition-transform duration-500" style={{ transform: `translateY(-${index * 25}%)` }}>
+        {
+          items.map((item, i) => (
+            <div key={i} className="flex w-full justify-center sm:h-16 md:justify-start md:items-start xl:h-20 md:text-4xl text-orange-500 items-center h-10 text-2xl sm:text-5xl xl:text-6xl lg:text-5xl font-bold">
+              {item}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  )
+}
+
 const HomePage = () => {
   // const [hovered, setHovered] = useState(false);
+  const sliderDiv = useRef(null)
 
   const properties = [
     {
@@ -221,23 +249,34 @@ const HomePage = () => {
     },
   ];
 
-  // const copyToClipboard = (link) => {
-  //   navigator.clipboard.writeText(link)
-  //     .then(() => {
-  //       alert("Link copied to clipboard!");
-  //     })
-  //     .catch((err) => {
-  //       console.error("Failed to copy: ", err);
-  //     });
-  // };
+  const carousal = [
+    "Industrial Plots",
+    "Villas plots",
+    "Resedential plots",
+    "high rise Flats"
+  ]
+
+  useEffect(() => {
+    setTimeout(() => {
+      sliderDiv.current.scrollLeft = sliderDiv.current.scrollWidth;
+    }, 2000);
+  }, [])
 
   return (
     <div className="font-sans text-gray-800 max-w-7.5xl mx-auto px-4 sm:px-6 lg:px-8">
       <section className="text-center  py-8 sm:py-14 px-4 sm:px-6 lg:px-8 rounded-2xl my-6 max-sm:mt-0 flex flex-col md:flex-row md:relative">
         <div className="w-full md:w-1/2">
-          <h1 className="text-2xl text-center md:text-left  sm:text-5xl lg:text-6xl font-bold mb-6 ">
-            Find Your Dream Property<br></br> with Teja BuildTech
-          </h1>
+          <div ref={sliderDiv} className="disable-scrollbar w-full h-auto flex overflow-hidden scroll-smooth">
+            <h1 className="min-w-full text-2xl text-center md:text-left  sm:text-5xl lg:text-6xl font-bold mb-6 ">
+              Find Your Dream Property<br></br> with Teja BuildTech
+            </h1>
+            <h1 className="min-w-full text-2xl text-center md:text-left sm:text-5xl lg:text-6xl font-bold mb-6 ">
+              Are You Looking <br /> For the Best <br />
+              <div className="flex flex-col overflow-visible">
+                <UpwardsCarousel items={carousal} />
+              </div>
+            </h1>
+          </div>
           <p className="text-lg sm:text-xl text-gray-600 mb-8 max-w-3xl  text-center md:text-left">
             Explore an exclusive selection of prime real estate tailored to match
             your lifestyle and preferences. Whether you&apos;re seeking a family
@@ -270,7 +309,7 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-        <div className="w-full md:w-1/2 md:absolute md:-top-8 md:right-10">
+        <div className="w-full md:w-[48%] md:absolute md:-top-8 md:right-10">
           <img src={house} alt="" className="w-full h-full md:h-[550px]" />
         </div>
 
@@ -282,7 +321,7 @@ const HomePage = () => {
       <section className="flex flex-col md:flex-row justify-around py-8 bg-white mx-4 sm:mx-0">
         {["122K+", "280+", "120+"].map((number, index) => (
           <div key={index} className="flex gap-4 items-center mb-8 md:mb-0">
-            <h2 className="text-5xl font-bold"><RollingNumber targetNumber={parseInt(number,10)} duration={1000} stepTime={50} /></h2>
+            <h2 className="text-5xl font-bold"><RollingNumber targetNumber={parseInt(number, 10)} duration={1000} stepTime={50} /></h2>
             <p className="text-gray-600 mt-2 text-base text-center max-w-[180px]">
               {index === 0 && "People Believe In Our Service"}
               {index === 1 && "Property And House Ready For Occupancy"}
