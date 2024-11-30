@@ -49,7 +49,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link to="/about-us#leader" className="hover:underline">
-                    Our Team Work
+                    Our Team
                   </Link>
                 </li>
                 <li>
@@ -68,21 +68,27 @@ const Footer = () => {
             <div>
               <h3 className="text-lg font-semibold mb-4">Site Links</h3>
               <ul className="space-y-2">
+                <Link to="/contact-us" className="mb-2">
                 <li>
-                  <a href="#" className="hover:underline">
-                    Privacy Policy
-                  </a>
+                 
+                    Contact Us
+                 
                 </li>
+                </Link>
                 {/* <li>
                   <a href="#" className="hover:underline">
                     Disclaimer
                   </a>
                 </li> */}
-                <li>
-                  <a href="#" className="hover:underline">
-                    Terms & Condition
-                  </a>
+                <Link to={"https://wa.link/0po3q9"}
+            target="_blank"
+            rel="noopener noreferrer" >
+                <li className="my-2">
+                  
+                    Get in Touch
+               
                 </li>
+                </Link>
                 {/* <li>
                   <a href="#" className="hover:underline">
                     Cookies Used
@@ -101,7 +107,7 @@ const Footer = () => {
                   <Mail size={16} className="mr-2" /> tejabuildtech.marketing@gmail.com
                 </li>
                 <li className="flex items-center">
-                  <Phone size={16} className="mr-2" /> +91 9654987004
+                  <Phone size={16} className="mr-2" /> +91 9654987500
                 </li>
               </ul>
             </div>
