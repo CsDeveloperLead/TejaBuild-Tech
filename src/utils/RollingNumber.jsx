@@ -21,5 +21,5 @@ export const RollingNumber = ({ targetNumber, duration, stepTime }) => {
         return () => clearInterval(interval);
     }, [targetNumber, duration, stepTime]);
 
-    return <h1 className="text-5xl font-bold font-montserrat">{Math.floor(currentNumber)} +</h1>
-}
+    return <h1 className="text-4xl sm:text-5xl flex justify-center gap-2 items-center font-bold font-montserrat">{Math.floor(currentNumber)} <span className="flex justify-center items-center mb-1">+</span></h1>
+} 
