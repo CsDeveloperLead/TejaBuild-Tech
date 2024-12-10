@@ -34,6 +34,7 @@ import img12 from "../assets/rahul.jpg";
 import house from "../assets/house1.png";
 import { useEffect, useRef, useState } from "react";
 import { RollingNumber } from "../utils/RollingNumber";
+import { UpwardsCarousel } from "../utils/UpwardsCarousal";
 
 function ScrollProgressBar() {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -65,64 +66,17 @@ function ScrollProgressBar() {
   );
 }
 
-function UpwardsCarousel({ items }) {
-  const [index, setIndex] = useState(0)
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % items.length)
-    }, 2000);
-
-    return () => clearInterval(interval);
-
-  }, [items.length])
-
-  return (
-    <div className="relative w-full h-12 sm:h-16 overflow-hidden xl:h-20">
-      <div className="flex flex-col transition-transform duration-500" style={{ transform: `translateY(-${index * 25}%)` }}>
-        {
-          items.map((item, i) => (
-            <div key={i} className="flex w-full justify-center text-4xl sm:h-16 md:justify-start md:items-start xl:h-20 md:text-4xl text-orange-500 items-center h-12 sm:text-5xl xl:text-6xl lg:text-5xl font-bold">
-              {item}
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  )
-}
-
 const HomePage = () => {
   // const [hovered, setHovered] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const sliderRef = useRef(null);
 
   useEffect(() => {
-    const slider = sliderRef.current;
-    if (!slider) return;
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % 3);
+    }, 6000); // 5 seconds interval
 
-    const slides = Array.from(slider.children)
-
-    // Duplicate slides to create an infinite loop
-    slides.forEach(slide => slider.appendChild(slide.cloneNode(true)));
-
-    let scrollPosition = 0;
-    const slideWidth = slides[0]?.getBoundingClientRect().width || 0;
-
-    const autoSlide = setInterval(() => {
-      scrollPosition += Math.floor(slideWidth);
-      slider.scrollTo({
-        left: scrollPosition,
-        behavior: "smooth",
-      });
-
-      // Reset without noticing if it's past the duplicated content
-      if (scrollPosition >= slider.scrollWidth / 2) {
-        scrollPosition = 0; // Reset back to the beginning of the duplicated content
-        slider.scrollLeft = 0; // Directly adjust scroll
-      }
-    }, 6000);
-
-    return () => clearInterval(autoSlide);
+    return () => clearInterval(interval);
   }, []);
 
   const properties = [
@@ -324,160 +278,166 @@ const HomePage = () => {
 
   return (
     <div className="font-sans text-gray-800 max-w-7.5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="disable-scrollbar w-auto h-auto flex overflow-x-hidden" ref={sliderRef}>
-        <section className="text-center min-w-full py-8 sm:py-14 px-4 sm:px-6 lg:px-8 bg-neutral-100 overflow-hidden rounded-2xl my-6 max-sm:mt-0 flex flex-col md:flex-row md:justify-between md:relative">
-          <div className="w-full md:w-1/2">
-            <div className="disable-scrollbar w-full h-auto flex overflow-hidden scroll-smooth">
-              <h1 className="min-w-full text-2xl text-center md:text-left  sm:text-5xl lg:text-6xl font-bold mb-6 ">
-                Find Your Dream Property<br></br> with Teja BuildTech
-              </h1>
+      <div className="disable-scrollbar w-auto h-auto flex overflow-x-hidden">
+        <div className="min-w-full h-auto flex scroll-smooth duration-700 ease-in-out transition-all"
+          ref={sliderRef} style={{
+            transform: `translateX(-${currentIndex * 100}%)`,
+            width: `${3 * 100}%`,
+          }}>
+          <section className="text-center min-w-full py-8 sm:py-14 px-4 sm:px-6 lg:px-8 bg-neutral-100 overflow-hidden rounded-2xl my-6 max-sm:mt-0 flex flex-col md:flex-row md:justify-between md:relative">
+            <div className="w-full md:w-1/2">
+              <div className="disable-scrollbar w-full h-auto flex overflow-hidden scroll-smooth">
+                <h1 className="min-w-full text-2xl text-center md:text-left  sm:text-5xl lg:text-6xl font-bold mb-6 ">
+                  Find Your Dream Property<br></br> with Teja BuildTech
+                </h1>
+              </div>
+              <div className="sm:hidden">
+                <img src={house} alt="" className="w-full h-full md:h-[550px]" />
+              </div>
+              <p className="text-lg mt-5 sm:mt-0 sm:text-xl text-gray-600 mb-8 max-w-3xl  text-center md:text-left">
+                Explore an exclusive selection of prime real estate tailored to match
+                your lifestyle and preferences. Whether you&apos;re seeking a family
+                home, a luxurious apartment, or a smart investment in terms of
+                Residential plots or Specially designed Industrial plots.
+              </p>
+              <div className="flex flex-col sm:flex-row justify-left gap-4 mb-8">
+                <Link to={"/properties"}>
+                  <button className="bg-orange-500  text-white py-3 px-8 rounded-full text-lg hover:bg-orange-600 transition duration-300">
+                    Explore Properties
+                  </button>
+                </Link>
+                <Link
+                  to={"https://wa.link/0po3q9"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button className="bg-white text-gray-800 py-3 px-8 rounded-full text-lg border-2 border-gray-800 hover:bg-gray-100 transition duration-300">
+                    Get In Touch
+                  </button>
+                </Link>
+              </div>
+
+              <div className="flex flex-col sm:flex-row justify-left gap-6 mt-8">
+                <div className="flex items-center text-lg">
+                  <TiTickOutline className="text-green-500 mr-2" /> Professional Team
+                </div>
+                <div className="flex items-center text-lg">
+                  <TiTickOutline className="text-green-500 mr-2" /> Premium Product
+                </div>
+              </div>
             </div>
-            <div className="sm:hidden">
+            <div className="hidden sm:block w-full md:w-[45%] md:absolute md:-top-8 md:right-0">
               <img src={house} alt="" className="w-full h-full md:h-[550px]" />
             </div>
-            <p className="text-lg mt-5 sm:mt-0 sm:text-xl text-gray-600 mb-8 max-w-3xl  text-center md:text-left">
-              Explore an exclusive selection of prime real estate tailored to match
-              your lifestyle and preferences. Whether you&apos;re seeking a family
-              home, a luxurious apartment, or a smart investment in terms of
-              Residential plots or Specially designed Industrial plots.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-left gap-4 mb-8">
-              <Link to={"/properties"}>
-                <button className="bg-orange-500  text-white py-3 px-8 rounded-full text-lg hover:bg-orange-600 transition duration-300">
-                  Explore Properties
-                </button>
-              </Link>
-              <Link
-                to={"https://wa.link/0po3q9"}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <button className="bg-white text-gray-800 py-3 px-8 rounded-full text-lg border-2 border-gray-800 hover:bg-gray-100 transition duration-300">
-                  Get In Touch
-                </button>
-              </Link>
-            </div>
 
-            <div className="flex flex-col sm:flex-row justify-left gap-6 mt-8">
-              <div className="flex items-center text-lg">
-                <TiTickOutline className="text-green-500 mr-2" /> Professional Team
+          </section>
+          <section className="text-center min-w-full py-8 sm:py-14 px-4 sm:px-6 lg:px-8 bg-neutral-100 overflow-hidden rounded-2xl my-6 max-sm:mt-0 flex flex-col md:flex-row md:justify-between md:relative">
+            <div className="w-full md:w-1/2">
+              <div className="disable-scrollbar w-full h-auto flex overflow-hidden scroll-smooth">
+                <h1 className="min-w-full text-4xl text-center md:text-left sm:text-5xl lg:text-6xl font-bold mb-6 ">
+                  Are You Looking <br /> For the Best <br />
+                  <div className="flex flex-col overflow-visible">
+                    <UpwardsCarousel items={carousal} />
+                  </div>
+                </h1>
+                <h1 className="min-w-full text-2xl text-center md:text-left sm:text-5xl lg:text-6xl font-bold mb-6 ">
+                  Are You Looking <br /> For the Best <br />
+                  <div className="flex flex-col overflow-visible">
+                    Hello2
+                  </div>
+                </h1>
               </div>
-              <div className="flex items-center text-lg">
-                <TiTickOutline className="text-green-500 mr-2" /> Premium Product
+              <div className="sm:hidden">
+                <img src={house} alt="" className="w-full h-full md:h-[550px]" />
               </div>
-            </div>
-          </div>
-          <div className="hidden sm:block w-full md:w-[45%] md:absolute md:-top-8 md:right-0">
-            <img src={house} alt="" className="w-full h-full md:h-[550px]" />
-          </div>
+              <p className="text-lg mt-5 sm:mt-0 sm:text-xl text-gray-600 mb-8 max-w-3xl  text-center md:text-left">
+                Our premium industrial plots offer excellent connectivity, essential infrastructure, and a business-friendly environment to help you scale your operations seamlessly. Invest in the right location today for long-term success!
+              </p>
+              <div className="flex flex-col sm:flex-row justify-left gap-4 mb-8">
+                <Link to={"/contact-us"}>
+                  <button className="bg-orange-500  text-white py-3 px-8 rounded-full text-lg hover:bg-orange-600 transition duration-300">
+                    Book a Call
+                  </button>
+                </Link>
+                <Link
+                  to={"https://wa.link/0po3q9"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button className="bg-white text-gray-800 py-3 px-8 rounded-full text-lg border-2 border-gray-800 hover:bg-gray-100 transition duration-300">
+                    Get It Now
+                  </button>
+                </Link>
+              </div>
 
-        </section>
-        <section className="text-center min-w-full py-8 sm:py-14 px-4 sm:px-6 lg:px-8 bg-neutral-100 overflow-hidden rounded-2xl my-6 max-sm:mt-0 flex flex-col md:flex-row md:justify-between md:relative">
-          <div className="w-full md:w-1/2">
-            <div className="disable-scrollbar w-full h-auto flex overflow-hidden scroll-smooth">
-              <h1 className="min-w-full text-4xl text-center md:text-left sm:text-5xl lg:text-6xl font-bold mb-6 ">
-                Are You Looking <br /> For the Best <br />
-                <div className="flex flex-col overflow-visible">
-                  <UpwardsCarousel items={carousal} />
+              <div className="flex flex-col sm:flex-row justify-left gap-6 mt-8">
+                <div className="flex items-center text-lg">
+                  <TiTickOutline className="text-green-500 mr-2" /> With Best Price
                 </div>
-              </h1>
-              <h1 className="min-w-full text-2xl text-center md:text-left sm:text-5xl lg:text-6xl font-bold mb-6 ">
-                Are You Looking <br /> For the Best <br />
-                <div className="flex flex-col overflow-visible">
-                  Hello2
+                <div className="flex items-center text-lg">
+                  <TiTickOutline className="text-green-500 mr-2" /> With Best Location
                 </div>
-              </h1>
+              </div>
             </div>
-            <div className="sm:hidden">
+            <div className="hidden sm:block w-full md:w-[45%] md:absolute md:-top-8 md:right-0">
               <img src={house} alt="" className="w-full h-full md:h-[550px]" />
             </div>
-            <p className="text-lg mt-5 sm:mt-0 sm:text-xl text-gray-600 mb-8 max-w-3xl  text-center md:text-left">
-              Our premium industrial plots offer excellent connectivity, essential infrastructure, and a business-friendly environment to help you scale your operations seamlessly. Invest in the right location today for long-term success!
-            </p>
-            <div className="flex flex-col sm:flex-row justify-left gap-4 mb-8">
-              <Link to={"/contact-us"}>
-                <button className="bg-orange-500  text-white py-3 px-8 rounded-full text-lg hover:bg-orange-600 transition duration-300">
-                  Book a Call
-                </button>
-              </Link>
-              <Link
-                to={"https://wa.link/0po3q9"}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <button className="bg-white text-gray-800 py-3 px-8 rounded-full text-lg border-2 border-gray-800 hover:bg-gray-100 transition duration-300">
-                  Get It Now
-                </button>
-              </Link>
-            </div>
 
-            <div className="flex flex-col sm:flex-row justify-left gap-6 mt-8">
-              <div className="flex items-center text-lg">
-                <TiTickOutline className="text-green-500 mr-2" /> With Best Price
+          </section>
+          <section className="text-center min-w-full py-8 sm:py-14 px-4 sm:px-6 lg:px-8 bg-neutral-100 overflow-hidden rounded-2xl my-6 max-sm:mt-0 flex flex-col md:flex-row md:justify-between md:relative">
+            <div className="w-full md:w-1/2">
+              <div className="disable-scrollbar w-full h-auto flex overflow-hidden scroll-smooth">
+                <h1 className="min-w-full text-4xl text-center md:text-left sm:text-5xl lg:text-6xl font-bold mb-6 ">
+                  Are You Looking For <br /> high rise Flats <br />
+                  <div className="flex flex-col overflow-visible mt-2">
+                    <UpwardsCarousel items={carousal2} />
+                  </div>
+                </h1>
+                <h1 className="min-w-full text-2xl text-center md:text-left sm:text-5xl lg:text-6xl font-bold mb-6 ">
+                  Are You Looking <br /> For the Best <br />
+                  <div className="flex flex-col overflow-visible">
+                    Hello
+                  </div>
+                </h1>
               </div>
-              <div className="flex items-center text-lg">
-                <TiTickOutline className="text-green-500 mr-2" /> With Best Location
+              <div className="sm:hidden">
+                <img src={house} alt="" className="w-full h-full md:h-[550px]" />
               </div>
-            </div>
-          </div>
-          <div className="hidden sm:block w-full md:w-[45%] md:absolute md:-top-8 md:right-0">
-            <img src={house} alt="" className="w-full h-full md:h-[550px]" />
-          </div>
+              <p className="text-lg mt-5 sm:mt-0 sm:text-xl text-gray-600 mb-8 max-w-3xl  text-center md:text-left">
+                Discover premium 1BHK, 2BHK, 3BHK, and more, designed for modern living. Experience unmatched comfort, stunning views, and top-notch amenities in well-connected locations. Find your dream home in the sky today!
+              </p>
+              <div className="flex flex-col sm:flex-row justify-left gap-4 mb-8">
+                <Link to={"https://kd-sure-construction.vercel.app/"}>
+                  <button className="bg-orange-500  text-white py-3 px-8 rounded-full text-lg hover:bg-orange-600 transition duration-300">
+                    Explore More
+                  </button>
+                </Link>
+                <Link
+                  to={"https://kd-sure-construction.vercel.app/contact"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button className="bg-white text-gray-800 py-3 px-8 rounded-full text-lg border-2 border-gray-800 hover:bg-gray-100 transition duration-300">
+                    Get In Touch
+                  </button>
+                </Link>
+              </div>
 
-        </section>
-        <section className="text-center min-w-full py-8 sm:py-14 px-4 sm:px-6 lg:px-8 bg-neutral-100 overflow-hidden rounded-2xl my-6 max-sm:mt-0 flex flex-col md:flex-row md:justify-between md:relative">
-          <div className="w-full md:w-1/2">
-            <div className="disable-scrollbar w-full h-auto flex overflow-hidden scroll-smooth">
-              <h1 className="min-w-full text-4xl text-center md:text-left sm:text-5xl lg:text-6xl font-bold mb-6 ">
-                Are You Looking For <br /> high rise Flats <br />
-                <div className="flex flex-col overflow-visible mt-2">
-                  <UpwardsCarousel items={carousal2} />
+              <div className="flex flex-col sm:flex-row justify-left gap-6 mt-8">
+                <div className="flex items-center text-lg">
+                  <TiTickOutline className="text-green-500 mr-2" /> Spacious Flats
                 </div>
-              </h1>
-              <h1 className="min-w-full text-2xl text-center md:text-left sm:text-5xl lg:text-6xl font-bold mb-6 ">
-                Are You Looking <br /> For the Best <br />
-                <div className="flex flex-col overflow-visible">
-                  Hello
+                <div className="flex items-center text-lg">
+                  <TiTickOutline className="text-green-500 mr-2" /> Luxurious Residence
                 </div>
-              </h1>
+              </div>
             </div>
-            <div className="sm:hidden">
+            <div className="hidden sm:block w-full md:w-[45%] md:absolute md:-top-8 md:right-0">
               <img src={house} alt="" className="w-full h-full md:h-[550px]" />
             </div>
-            <p className="text-lg mt-5 sm:mt-0 sm:text-xl text-gray-600 mb-8 max-w-3xl  text-center md:text-left">
-              Discover premium 1BHK, 2BHK, 3BHK, and more, designed for modern living. Experience unmatched comfort, stunning views, and top-notch amenities in well-connected locations. Find your dream home in the sky today!
-            </p>
-            <div className="flex flex-col sm:flex-row justify-left gap-4 mb-8">
-              <Link to={"https://kd-sure-construction.vercel.app/"}>
-                <button className="bg-orange-500  text-white py-3 px-8 rounded-full text-lg hover:bg-orange-600 transition duration-300">
-                  Explore More
-                </button>
-              </Link>
-              <Link
-                to={"https://kd-sure-construction.vercel.app/contact"}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <button className="bg-white text-gray-800 py-3 px-8 rounded-full text-lg border-2 border-gray-800 hover:bg-gray-100 transition duration-300">
-                  Get In Touch
-                </button>
-              </Link>
-            </div>
 
-            <div className="flex flex-col sm:flex-row justify-left gap-6 mt-8">
-              <div className="flex items-center text-lg">
-                <TiTickOutline className="text-green-500 mr-2" /> Spacious Flats
-              </div>
-              <div className="flex items-center text-lg">
-                <TiTickOutline className="text-green-500 mr-2" /> Luxurious Residence
-              </div>
-            </div>
-          </div>
-          <div className="hidden sm:block w-full md:w-[45%] md:absolute md:-top-8 md:right-0">
-            <img src={house} alt="" className="w-full h-full md:h-[550px]" />
-          </div>
-
-        </section>
+          </section>
+        </div>
       </div>
 
       {/* Stats Section */}
@@ -796,7 +756,7 @@ const HomePage = () => {
           </p>
         </div>
       </section>
-    </div>
+    </div >
   );
 };
 
