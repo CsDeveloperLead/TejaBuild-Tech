@@ -301,8 +301,15 @@ const HomePage = () => {
                 Residential plots or Specially designed Industrial plots.
               </p>
               <div className="flex flex-col sm:flex-row justify-left gap-4 mb-8">
-                <Link to={"/properties"}>
-                  <button className="bg-orange-500  text-white py-3 px-8 rounded-full text-lg hover:bg-orange-600 transition duration-300">
+                <Link
+                  to={"/properties"}
+                  className="block relative group rounded-full p-1 w-[206px] mx-auto sm:mx-0 sm:w-auto bg-gradient-to-r from-white to-orange-600 overflow-hidden"
+                >
+                  {/* Running border with pseudo-element */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-white to-orange-600 animate-gradient-flow"></div>
+
+                  {/* Button content */}
+                  <button className="relative z-10 bg-orange-600 text-white px-8 py-4 sm:py-3 rounded-full flex items-center font-semibold text-md">
                     Explore Properties
                   </button>
                 </Link>
@@ -354,8 +361,15 @@ const HomePage = () => {
                 Our premium industrial plots offer excellent connectivity, essential infrastructure, and a business-friendly environment to help you scale your operations seamlessly. Invest in the right location today for long-term success!
               </p>
               <div className="flex flex-col sm:flex-row justify-left gap-4 mb-8">
-                <Link to={"/contact-us"}>
-                  <button className="bg-orange-500  text-white py-3 px-8 rounded-full text-lg hover:bg-orange-600 transition duration-300">
+                <Link
+                  to={"/contact-us"}
+                  className="block relative group rounded-full p-1 w-[153px] mx-auto sm:mx-0 sm:w-auto bg-gradient-to-r from-white to-orange-600 overflow-hidden"
+                >
+                  {/* Running border with pseudo-element */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-white to-orange-600 animate-gradient-flow"></div>
+
+                  {/* Button content */}
+                  <button className="relative z-10 bg-orange-600 text-white px-8 py-4 sm:py-3 rounded-full flex items-center font-semibold text-md">
                     Book a Call
                   </button>
                 </Link>
@@ -407,8 +421,16 @@ const HomePage = () => {
                 Discover premium 1BHK, 2BHK, 3BHK, and more, designed for modern living. Experience unmatched comfort, stunning views, and top-notch amenities in well-connected locations. Find your dream home in the sky today!
               </p>
               <div className="flex flex-col sm:flex-row justify-left gap-4 mb-8">
-                <Link to={"https://kd-sure-construction.vercel.app/"}>
-                  <button className="bg-orange-500  text-white py-3 px-8 rounded-full text-lg hover:bg-orange-600 transition duration-300">
+                <Link
+                  to={"https://kd-sure-construction.vercel.app/"}
+                  target="_blank"
+                  className="block relative group rounded-full p-1 w-[169px] mx-auto sm:mx-0 sm:w-auto bg-gradient-to-r from-white to-orange-600 overflow-hidden"
+                >
+                  {/* Running border with pseudo-element */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-white to-orange-600 animate-gradient-flow"></div>
+
+                  {/* Button content */}
+                  <button className="relative z-10 bg-orange-600 text-white px-8 py-4 sm:py-3 rounded-full flex items-center font-semibold text-md">
                     Explore More
                   </button>
                 </Link>
@@ -467,8 +489,15 @@ const HomePage = () => {
               Featured Properties
             </h2>
           </div>
-          <Link className="hidden sm:block" to={"/properties"}>
-            <button className="mt-4 sm:mt-0 bg-orange-500 text-white rounded-full px-4 py-[6px] text-lg hover:bg-orange-600 transition duration-300 sm:py-3 sm:px-8">
+          <Link
+            to={"/properties"}
+            className="hidden md:block relative group rounded-full p-1 bg-gradient-to-r from-white to-orange-600 overflow-hidden"
+          >
+            {/* Running border with pseudo-element */}
+            <div className="absolute inset-0 bg-gradient-to-r from-white to-orange-600 animate-gradient-flow"></div>
+
+            {/* Button content */}
+            <button className="relative z-10 bg-orange-600 sm:mt-0 text-white px-4 py-[6px] rounded-full flex items-center font-semibold text-md sm:py-3 sm:px-8">
               View More
             </button>
           </Link>
@@ -501,22 +530,17 @@ const HomePage = () => {
                   <p className="text-gray-600 mb-4">{property.location}</p>
                   <div className="flex justify-between items-center">
                     <div className="flex space-x-2">
-                      {/* <button className="text-gray-500 hover:text-red-500">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24">
-                    <circle cx="256" cy="256" r="244.49" fill="#f25268"></circle>
-                    <path fill="#fff" d="M381.91 157.66C339.49 99.28 256 133.72 256 193c0-59.29-83.5-93.74-125.93-35.35C86.23 218 129.45 323.74 256 384.48 382.54 323.74 425.77 218 381.91 157.66z"></path>
-                  </svg>
-                </button> */}
-                      {/* <button className="text-gray-500 hover:text-blue-500"  onClick={() => copyToClipboard(property.link)}>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <path fill="none" d="M0 0h24v24H0V0z"></path>
-                    <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"></path>
-                  </svg>
-                </button> */}
                       <div className="font-bold text-sm w-[140px]">{property.price}</div>
                     </div>
-                    <Link to={property.link} target="_blank">
-                      <button className="bg-orange-500 text-white px-4 py-2 rounded-full text-sm hover:bg-orange-600 transition duration-300">
+                    <Link
+                      to={property.link}
+                      className="relative group rounded-full p-1  min-w-[118px] bg-gradient-to-r from-white to-orange-600 overflow-hidden"
+                    >
+                      {/* Running border with pseudo-element */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-white to-orange-600 animate-gradient-flow"></div>
+
+                      {/* Button content */}
+                      <button className="relative z-10 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-full text-sm">
                         Get A Quote
                       </button>
                     </Link>
@@ -552,8 +576,15 @@ const HomePage = () => {
                     <div className="flex space-x-2">
                       <div className="font-bold text-sm w-[140px]">{property.price}</div>
                     </div>
-                    <Link to={property.link} target="_blank">
-                      <button className="bg-orange-500 text-white px-4 py-2 rounded-full text-sm hover:bg-orange-600 transition duration-300">
+                    <Link
+                      to={property.link}
+                      className="relative group rounded-full p-1 w-[118px] bg-gradient-to-r from-white to-orange-600 overflow-hidden"
+                    >
+                      {/* Running border with pseudo-element */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-white to-orange-600 animate-gradient-flow"></div>
+
+                      {/* Button content */}
+                      <button className="relative z-10 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-full text-sm">
                         Get A Quote
                       </button>
                     </Link>
@@ -562,8 +593,15 @@ const HomePage = () => {
               </div>
             ))}
           </div>
-          <Link className="sm:hidden mx-auto flex justify-center items-center" to={"/properties"}>
-            <button className="mt-4 sm:mt-0 bg-orange-500 text-white rounded-full px-4 py-[6px] text-lg hover:bg-orange-600 transition duration-300 sm:py-3 sm:px-8">
+          <Link
+            to={"/properties"}
+            className="sm:hidden mx-auto w-[119px] flex justify-center mt-7 items-center relative group rounded-full p-1  bg-gradient-to-r from-white to-orange-600 overflow-hidden"
+          >
+            {/* Running border with pseudo-element */}
+            <div className="absolute inset-0 bg-gradient-to-r from-white to-orange-600 animate-gradient-flow"></div>
+
+            {/* Button content */}
+            <button className="relative z-10 bg-orange-600 text-white px-4 py-[6px] rounded-full flex items-center font-semibold text-md">
               View More
             </button>
           </Link>

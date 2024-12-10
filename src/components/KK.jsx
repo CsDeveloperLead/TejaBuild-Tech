@@ -36,8 +36,15 @@ const KK = () => {
                 <p className="text-[#ef6d11] font-bold text-xl md:text-4xl">
                   ₹22,500 per sq yard
                 </p>
-                <Link to={"https://wa.link/mhemmw"} target="_blank">
-                  <button className="bg-[#ef6d11] rounded-3xl text-white flex justify-center items-center w-[140px] md:w-[180px] py-2 font-semibold">
+                <Link
+                  to={"https://wa.link/mhemmw"} target="_blank"
+                  className="relative group rounded-full p-1 bg-gradient-to-r  from-[#292929] to-orange-600 overflow-hidden"
+                >
+                  {/* Running border with pseudo-element */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#292929] to-orange-600 animate-gradient-flow"></div>
+
+                  {/* Button content */}
+                  <button className="relative z-10 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-full text-sm">
                     Get a Deal
                   </button>
                 </Link>
@@ -69,14 +76,20 @@ const KK = () => {
           </div>
         </div>
       </div>
+      <div className="w-full h-auto flex justify-center items-center mt-10">
+        <Link
+          to="/properties#main"
+          className="relative group mx-auto rounded-full p-1 bg-gradient-to-r  from-white to-orange-600 overflow-hidden"
+        >
+          {/* Running border with pseudo-element */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white to-orange-600 animate-gradient-flow"></div>
 
-      <Link to="/properties#main">
-        <div className="w-full flex justify-center items-center mt-10">
-          <button className="flex justify-center items-center rounded-[30px] bg-[#ef6d11] w-2/3 md:w-1/5 text-white py-3 font-semibold text-base md:text-xl">
+          {/* Button content */}
+          <button className="relative z-10 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 font-semibold rounded-full md:text-xl">
             Explore More Properties
           </button>
-        </div>
-      </Link>
+        </Link>
+      </div>
     </div>
   );
 };

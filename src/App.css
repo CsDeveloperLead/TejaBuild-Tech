@@ -16,3 +16,17 @@
 html {
     scroll-behavior: smooth;
 }
+
+@keyframes gradient-flow {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+   
+  }
+  
+  .animate-gradient-flow {
+    animation: gradient-flow 1s linear infinite;
+  }
