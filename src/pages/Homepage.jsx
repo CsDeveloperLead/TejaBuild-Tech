@@ -478,7 +478,7 @@ const HomePage = () => {
         <div className="overflow-hidden">
           <div
             ref={scrollRef}
-            className="hidden md:flex md:space-x-8 md:overflow-x-scroll md:scroll-smooth"
+            className="hidden md:flex md:space-x-8 md:overflow-x-scroll md:scroll-smooth pb-8"
             style={{
               scrollbarWidth: "none", // For Firefox
               msOverflowStyle: "none", // For Internet Explorer and Edge
