@@ -21,13 +21,13 @@ const Footer = () => {
             efficient and seamless.
           </p>
           <div className="flex space-x-4 justify-center md:justify-start">
-            <a href="#" className="text-white hover:text-gray-200">
+            <a href="https://www.facebook.com/profile.php?id=61566151574656&mibextid=ZbWKwL" target="_blank" className="text-white hover:text-gray-200">
               <Facebook size={20} />
             </a>
             <a href="#" className="text-white hover:text-gray-200">
               <Twitter size={20} />
             </a>
-            <a href="#" className="text-white hover:text-gray-200">
+            <a href="https://www.instagram.com/tejabuiltech?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" className="text-white hover:text-gray-200">
               <Instagram size={20} />
             </a>
           </div>
