@@ -3,8 +3,83 @@ import mainimg from "../assets/main1.png";
 import mainimg2 from "../assets/main2.png";
 import mainimg3 from "../assets/main3.png";
 import mainimg4 from "../assets/main4.png";
+import { useEffect, useRef, useState } from "react";
 
 const KK = () => {
+  const [isVisible1, setIsVisible1] = useState(false);
+  const [isVisible2, setIsVisible2] = useState(false);
+  const [isVisible3, setIsVisible3] = useState(false);
+  const [isVisible4, setIsVisible4] = useState(false);
+  const imageRef1 = useRef(null);
+  const imageRef2 = useRef(null);
+  const imageRef3 = useRef(null);
+  const imageRef4 = useRef(null);
+
+  useEffect(() => {
+    const observer1 = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible1(true);
+          observer1.disconnect(); // Stop observing once animation starts
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    const observer2 = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible2(true);
+          observer2.disconnect(); // Stop observing once animation starts
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    const observer3 = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible3(true);
+          observer1.disconnect(); // Stop observing once animation starts
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    const observer4 = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible4(true);
+          observer2.disconnect(); // Stop observing once animation starts
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (imageRef1.current) {
+      observer1.observe(imageRef1.current);
+    }
+
+    if (imageRef2.current) {
+      observer2.observe(imageRef2.current);
+    }
+
+    if (imageRef3.current) {
+      observer3.observe(imageRef3.current);
+    }
+
+    if (imageRef4.current) {
+      observer4.observe(imageRef4.current);
+    }
+
+    return () => {
+      observer1.disconnect();
+      observer2.disconnect();
+      observer3.disconnect();
+      observer4.disconnect();
+    };
+  }, []);
+
   return (
     <div className="mx-2">
       {/* Services Section */}
@@ -25,10 +100,11 @@ const KK = () => {
         </div>
       </div>
 
-      <div className="flex w-full flex-col md:flex-row gap-6">
+      <div className="flex w-full flex-col md:flex-row gap-6 overflow-hidden">
         <div className="w-full md:w-1/2">
           <div
-            className="w-full rounded-[30px] h-[500px] md:h-[760px] flex justify-center items-end"
+            ref={imageRef1}
+            className={`${isVisible1 ? 'animate-fadeInLeft' : 'opacity-0'} w-full rounded-[30px] h-[500px] md:h-[760px] flex justify-center items-end duration-500 transition-opacity`}
             style={{ backgroundImage: `url(${mainimg})`, backgroundSize: "cover", backgroundPosition: "center" }}
           >
             <div className="bg-[#292929] p-4 md:p-8 rounded-[30px] w-[90%] h-[150px] md:h-[200px] flex flex-col gap-6 mb-4 md:mb-8">
@@ -61,16 +137,19 @@ const KK = () => {
 
         <div className="w-full md:w-1/2 flex flex-col h-[450px] md:h-auto gap-6">
           <div
-            className="rounded-[30px] w-full h-1/2"
+            ref={imageRef2}
+            className={`${isVisible2 ? 'animate-fadeInRight' : 'opacity-0'} rounded-[30px] w-full h-1/2 duration-500 transition-opacity`}
             style={{ backgroundImage: `url(${mainimg2})`, backgroundSize: "cover", backgroundPosition: "center" }}
           ></div>
           <div className="flex gap-6 h-1/2">
             <div
-              className="rounded-[30px] w-full"
+              ref={imageRef3}
+              className={`${isVisible3 ? 'animate-fadeInUp' : 'opacity-0'} rounded-[30px] w-full`}
               style={{ backgroundImage: `url(${mainimg3})`, backgroundSize: "cover", backgroundPosition: "center" }}
             ></div>
             <div
-              className="rounded-[30px] w-full"
+              ref={imageRef4}
+              className={`${isVisible4 ? 'animate-fadeInUp' : 'opacity-0'} rounded-[30px] w-full`}
               style={{ backgroundImage: `url(${mainimg4})`, backgroundSize: "cover", backgroundPosition: "center" }}
             ></div>
           </div>

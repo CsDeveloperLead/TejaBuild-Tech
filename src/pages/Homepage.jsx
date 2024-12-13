@@ -786,11 +786,7 @@ const HomePage = () => {
             Ready to Find Your New Industrial Space?
           </h2>
           <p className="text-gray-600 lg:w-1/2">
-            Are you ready to find the perfect place to call home? At Teja
-            Builders, we offer a diverse range of luxurious properties designed
-            to meet your every need. From modern downtown apartments to spacious
-            suburban homes and stunning beachfront villas, your dream home
-            awaits.
+            Are you ready to find the perfect place to call your industry ? At Teja Builders, we offer a diverse range of industrial plots designed to meet your every need. From modern downtown commercial to spacious industrial plots and stunning industrial plot , your dream space awaits.
           </p>
         </div>
       </section>
