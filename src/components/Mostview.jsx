@@ -3,10 +3,10 @@ import { MdOutlineBathtub } from "react-icons/md";
 import { FaBed, FaLongArrowAltRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-import build1 from "../assets/1.png";
-import buildbg1 from "../assets/bg1.png";
-import build2 from "../assets/2.png";
-import buildbg2 from "../assets/bg2.png";
+import build1 from "../assets/1.webp";
+import buildbg1 from "../assets/bg1.webp";
+import build2 from "../assets/2.webp";
+import buildbg2 from "../assets/bg2.webp";
 
 // Sample property data
 const properties = [

@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import mainimg from "../assets/main1.png";
-import mainimg2 from "../assets/main2.png";
-import mainimg3 from "../assets/main3.png";
-import mainimg4 from "../assets/main4.png";
+import mainimg from "../assets/main1.webp";
+import mainimg2 from "../assets/main2.webp";
+import mainimg3 from "../assets/main3.webp";
+import mainimg4 from "../assets/main4.webp";
 import { useEffect, useRef, useState } from "react";
 
 const KK = () => {

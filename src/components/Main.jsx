@@ -1,10 +1,10 @@
 import React from "react";
 import { Facebook, Instagram, Twitter, Check } from "lucide-react";
 
-import img1 from "../assets/man2.jpg";
-import img2 from "../assets/man3.jpg";
-import img11 from "../assets/deepak.jpg";
-import img12 from "../assets/rahul.jpg";
+import img1 from "../assets/man2.webp";
+import img2 from "../assets/man3.webp";
+import img11 from "../assets/deepak.webp";
+import img12 from "../assets/rahul.webp";
 import video from "../assets/video2.mp4";
 
 const data = [

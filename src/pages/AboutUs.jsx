@@ -3,7 +3,7 @@ import { Calendar, Trophy } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useRef, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import about1 from "../assets/about4.png";
+import about1 from "../assets/about4.webp";
 import { RollingNumber } from "../utils/RollingNumber";
 
 const AboutUs = () => {
