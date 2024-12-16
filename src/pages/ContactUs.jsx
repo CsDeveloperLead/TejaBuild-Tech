@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { MapPin, Phone, Mail } from "lucide-react";
 import emailjs from "emailjs-com";
 
@@ -28,6 +28,10 @@ const ContactForm = () => {
         }
       );
   };
+
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[])
 
   return (
     <div className="bg-gray-100 rounded-lg p-8 max-sm:px-4 lg:w-1/2 lg:ml-20 shadow-md">

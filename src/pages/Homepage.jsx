@@ -344,7 +344,7 @@ const HomePage = () => {
                 <h1 className="min-w-full text-4xl text-center md:text-left sm:text-5xl lg:text-6xl font-bold mb-6 ">
                   Are You Looking <br /> For the Best <br />
                   <div className="flex flex-col overflow-visible">
-                    <UpwardsCarousel items={carousal} />
+                    {(currentIndex === 1 || currentIndex === 2) && <UpwardsCarousel items={carousal} />}
                   </div>
                 </h1>
                 <h1 className="min-w-full text-2xl text-center md:text-left sm:text-5xl lg:text-6xl font-bold mb-6 ">
@@ -404,7 +404,7 @@ const HomePage = () => {
                 <h1 className="min-w-full text-4xl text-center md:text-left sm:text-5xl lg:text-6xl font-bold mb-6 ">
                   Are You Looking For <br /> high rise Flats <br />
                   <div className="flex flex-col overflow-visible mt-2">
-                    <UpwardsCarousel items={carousal2} />
+                    {(currentIndex === 2 || currentIndex === 0) && <UpwardsCarousel items={carousal2} />}
                   </div>
                 </h1>
                 <h1 className="min-w-full text-2xl text-center md:text-left sm:text-5xl lg:text-6xl font-bold mb-6 ">
@@ -530,7 +530,7 @@ const HomePage = () => {
                   <p className="text-gray-600 mb-4">{property.location}</p>
                   <div className="flex justify-between items-center">
                     <div className="flex space-x-2">
-                      <div className="font-bold text-sm w-[140px]">{property.price}</div>
+                      <div className="font-bold text-sm w-[140px] text-orange-500">{property.price}</div>
                     </div>
                     <Link
                       to={property.link}
