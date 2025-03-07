@@ -243,7 +243,6 @@ const HomePage = () => {
         const currentScrollPosition = scrollContainer.scrollLeft;
         const containerWidth = scrollContainer.clientWidth;
 
-        // If the scroll reaches or exceeds the full width of the entire content (both batches)
         if (currentScrollPosition >= totalScrollWidth - containerWidth) {
           // Reset scroll position to the start to make it seamless
           scrollContainer.scrollLeft = 0;
