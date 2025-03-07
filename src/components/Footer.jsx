@@ -107,7 +107,7 @@ const Footer = () => {
                   <Mail size={16} className="mr-2" /> tejabuildtech.marketing@gmail.com
                 </li>
                 <li className="flex items-center">
-                  <Phone size={16} className="mr-2" /> +91 9654987500
+                  <Phone size={16} className="mr-2" /> +91 9540066755
                 </li>
               </ul>
             </div>

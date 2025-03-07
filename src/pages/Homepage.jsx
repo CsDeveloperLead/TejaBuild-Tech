@@ -87,7 +87,7 @@ const HomePage = () => {
       title: "Indo World Space Phase 1",
       location: "Ghaziabad, Uttar Pradesh",
       area: "1500 sq ft",
-      price: "₹22,500 per sq yard",
+      price: "₹25,000 per sq yard",
     },
     {
       id: 3,
@@ -96,7 +96,7 @@ const HomePage = () => {
       title: "Indo World Space Phase 2",
       location: "Ghaziabad, Uttar Pradesh",
       area: "2500 sq ft",
-      price: "₹22,500 per sq yard",
+      price: "₹25,000 per sq yard",
     },
     {
       id: 4,
@@ -105,7 +105,7 @@ const HomePage = () => {
       title: "Capital Logistic",
       location: "Ghaziabad, Uttar Pradesh",
       area: "2500 sq ft",
-      price: "₹22,500 per sq yard",
+      price: "₹25,000 per sq yard",
     },
     {
       id: 5,
@@ -114,7 +114,7 @@ const HomePage = () => {
       title: "Fellcon Infratech",
       location: "Ghaziabad, Uttar Pradesh",
       area: "2500 sq ft",
-      price: "₹22,500 per sq yard",
+      price: "₹25,000 per sq yard",
     },
     {
       id: 6,
@@ -123,7 +123,7 @@ const HomePage = () => {
       title: "Sai Industrial Park Phase 1",
       location: "Ghaziabad, Uttar Pradesh",
       area: "2500 sq ft",
-      price: "₹22,500 per sq yard",
+      price: "₹25,000 per sq yard",
     },
     {
       id: 7,
@@ -132,7 +132,7 @@ const HomePage = () => {
       title: "Sai Industrial Park Phase 2",
       location: "Ghaziabad, Uttar Pradesh",
       area: "2500 sq ft",
-      price: "₹22,500 per sq yard",
+      price: "₹25,000 per sq yard",
     },
     {
       id: 8,
@@ -141,7 +141,7 @@ const HomePage = () => {
       title: "Mangalam Hero Park",
       location: "Haridwar, Uttarakhand",
       area: "2500 sq ft",
-      price: "₹15,000 per sq meter",
+      price: "₹25,000 per sq meter",
     },
     {
       id: 9,
@@ -150,7 +150,7 @@ const HomePage = () => {
       title: "Sunrise Enclave",
       location: "Ghaziabad, Uttar Pradesh",
       area: "2500 sq ft",
-      price: "₹38,000 per sq yard",
+      price: "₹40,000 per sq yard",
     },
     // {
     //   id: 10,
@@ -168,7 +168,7 @@ const HomePage = () => {
       title: "MG Industrial Park",
       location: "Ghaziabad, Uttar Pradesh",
       area: "2500 sq ft",
-      price: "₹15,500 per sq yard",
+      price: "₹18,000 per sq yard",
     },
     {
       id: 1,

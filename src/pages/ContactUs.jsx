@@ -120,7 +120,7 @@ const ContactInfo = () => {
         </div>
         <div className="flex items-center">
           <Phone className="text-orange-500 mr-4" size={24} />
-          <p>Telephone: +91 9654987500 </p>
+          <p>Telephone: +91 9540066755 </p>
         </div>
       </div>
     </div>
