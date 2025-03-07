@@ -244,10 +244,8 @@ const HomePage = () => {
         const containerWidth = scrollContainer.clientWidth;
 
         if (currentScrollPosition >= totalScrollWidth - containerWidth) {
-          // Reset scroll position to the start to make it seamless
           scrollContainer.scrollLeft = 0;
         } else {
-          // Otherwise, continue scrolling to the right
           scrollContainer.scrollLeft += 340;
         }
       }
